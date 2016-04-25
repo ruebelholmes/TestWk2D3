@@ -17,7 +17,7 @@ namespace TestWk2D3
 
     public class Bob
     {
-        public string Hey(string remark)
+        public string hey(string remark)
         {
             if (remark.EndsWith("!"))
             {
