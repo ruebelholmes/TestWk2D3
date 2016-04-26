@@ -10,8 +10,13 @@ namespace TestWk2D3
     {
         static void Main(string[] args)
         {
-            Bob bob = new Bob();
-            string remark = "";
+            Console.WriteLine("Bob is a lackadaisical teenager, welcome to Hell.");
+
+            var bob = new Bob();
+
+            Console.WriteLine("Ask Bob a simple question, expect a simple answer.");
+
+            Console.ReadLine();
         }
     }
 }

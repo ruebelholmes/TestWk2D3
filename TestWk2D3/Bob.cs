@@ -6,50 +6,51 @@ using System.Threading.Tasks;
 
 namespace TestWk2D3
 {
-    public class Bob
+    public partial class Bob
     {
         public string hey(string remark)
         {
-            if (remark.EndsWith("!"))
-            {
-                return "Whoa, chill out!";
-            }
-
-            if (remark.Length == 26)
-            {
+            if (Silence(remark))
                 return "Fine. Be that way!";
-            }
 
-            if (remark.EndsWith("?"))
-            {
+            if (Question(remark))
                 return "Sure.";
-            }
 
-            if (remark.EndsWith("?") && remark.Length == 26)
-            {
-                return "Fine. Be that way!";
-            }
-
-            if (remark == "")
-            {
-                return "Fine.Be that way!";
-            }
-
-
+            if (Yelling(remark))
+                return "Whoa, chill out!";
 
             return "Whatever.";
         }
 
+        public bool Silence(string remark)
+        {
+            return remark == null || remark.Trim() == " ";
+        }
 
+        public bool Question(string remark) => remark.EndsWith("?");
 
+        public bool Yelling(string remark)
+        {
+            if (remark.Any(t => char.IsDigit(t) && remark.EndsWith("!")))
+            { 
+                return true;
+            }
+            return remark == ReplaceNumbers(remark.ToUpper());
+        }
 
+        private string ReplaceNumbers(string remark)
+        {
+            for (int i = 0; i < remark.Length; i++)
+            {
+                if (char.IsDigit(remark[i]))
+                {
+                    remark = remark.Replace(remark[i], '*');
+                }
+            }
 
+            return remark;
+        }
 
-
-
-    }
-
-    class Bob
-    {
+        
     }
 }
