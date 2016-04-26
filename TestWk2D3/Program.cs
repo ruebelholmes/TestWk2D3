@@ -14,24 +14,4 @@ namespace TestWk2D3
             string remark = "";
         }
     }
-
-    public class Bob
-    {
-        public string hey(string remark)
-        {
-            if (remark.EndsWith("!"))
-            {
-                return "Whoa, chill out!";
-            }
-
-            return "Whatever.";
-        }
-
-
-
-
-
-
-
-    }
 }
